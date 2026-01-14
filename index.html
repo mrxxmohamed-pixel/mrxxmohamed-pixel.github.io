@@ -1,13 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
-      name="keywords"
-      content="فتح سيارات مغلقة, مفاتيح سيارات, برمجة مفاتيح, نسخ مفاتيح, فتح أبواب سيارات, فتح سيارات بدون ضرر, طوارئ مفاتيح, مبرمج مفاتيح, فتح سيارات قريب"
+      name="description"
+      content="خدمة مفاتيح سيارات احترافية: فتح سيارات مغلقة، برمجة مفاتيح سمارت، نسخ ريموت، وسحب كود السويتش بأحدث الأجهزة."
     />
-    <title>مفتاحك | مفاتيح السيارات</title>
+    <meta
+      name="keywords"
+      content="مفاتيح سيارات, برمجة مفاتيح, فتح سيارات مغلقة, نسخ ريموت, سمارت كي, سحب كود, سويتش, مفاتيح احتياطية, خدمة طوارئ, مبرمج مفاتيح"
+    />
+    <title>مفتاح | مفاتيح سيارات وبرمجة مفاتيح</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -28,8 +32,8 @@
         </div>
         <nav class="nav-links">
           <a href="#services">الخدمات</a>
-          <a href="#about">نبذة</a>
-          <a href="#pricing">الاسعار</a>
+          <a href="#about">من أنا</a>
+          <a href="#pricing">الأسعار</a>
         </nav>
       </div>
     </div>
@@ -43,13 +47,28 @@
           <h2 id="heroTitle"></h2>
           <p id="heroSubtitle"></p>
           <div class="hero-actions">
-            <a class="btn btn-primary" id="ctaPrimary" href="#"></a>
-            <a class="btn btn-secondary" id="ctaSecondary" href="#" target="_blank" rel="noopener"></a>
+            <a class="btn btn-primary" id="ctaPrimary" href="#services"></a>
+            <a class="btn btn-secondary" id="ctaSecondary" href="#pricing"></a>
+          </div>
+          <div class="contact-strip hero-contacts" aria-label="رقم التواصل">
+            <div class="contact-pill">
+              <span>اتصال مباشر</span>
+              <strong id="directPhone" dir="ltr"></strong>
+            </div>
+            <div class="contact-pill">
+              <span>واتساب</span>
+              <strong id="whatsappNumber" dir="ltr"></strong>
+            </div>
           </div>
           <div class="keyword-strip">
             <div class="keyword-pill">
               <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M9 7a4 4 0 1 1 6.9 2.7L13 12v3h-3v-2l2.4-2.3A2 2 0 1 0 9 7Z" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <path
+                  d="M9 7a4 4 0 1 1 6.9 2.7L13 12v3h-3v-2l2.4-2.3A2 2 0 1 0 9 7Z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                />
                 <path d="M13 15h3v3h-3z" fill="none" stroke="currentColor" stroke-width="1.6" />
               </svg>
               فتح سيارات مغلقة
@@ -57,24 +76,47 @@
             <div class="keyword-pill">
               <svg viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M3 14l2-5h11l3 5" fill="none" stroke="currentColor" stroke-width="1.6" />
-                <path d="M7 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm10 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <path
+                  d="M7 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm10 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                />
                 <path d="M6 14h12" fill="none" stroke="currentColor" stroke-width="1.6" />
               </svg>
               مفاتيح سيارات حديثة
             </div>
             <div class="keyword-pill">
               <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M5 12h14" fill="none" stroke="currentColor" stroke-width="1.6" />
-                <path d="M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <rect x="7" y="3" width="10" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <circle cx="12" cy="8" r="1.2" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <circle cx="12" cy="12" r="1.2" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <circle cx="12" cy="16" r="1.2" fill="none" stroke="currentColor" stroke-width="1.6" />
               </svg>
-              برمجة ونسخ مفاتيح
+              نسخ ريموتات
             </div>
             <div class="keyword-pill">
               <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 6v6l4 2" fill="none" stroke="currentColor" stroke-width="1.6" />
                 <path d="M4 12a8 8 0 1 0 8-8" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <path d="M12 6v6l4 2" fill="none" stroke="currentColor" stroke-width="1.6" />
               </svg>
               خدمة طوارئ 24/7
+            </div>
+            <div class="keyword-pill">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M8 8l-4 4 4 4" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <path d="M16 8l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <path d="M10 18l4-12" fill="none" stroke="currentColor" stroke-width="1.6" />
+              </svg>
+              سحب كود السويتش
+            </div>
+            <div class="keyword-pill">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="4" y="8" width="8" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <path d="M8 8V5a4 4 0 0 1 8 0v5" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <rect x="12" y="10" width="8" height="8" rx="2" fill="none" stroke="currentColor" stroke-width="1.6" />
+              </svg>
+              مفاتيح احتياطية
             </div>
           </div>
           <p class="badge" id="responseTime"></p>
@@ -83,16 +125,16 @@
           <h3 id="heroHighlight"></h3>
           <div class="hero-meta">
             <div class="meta-card">
-              <strong>ضمان جودة</strong>
-              <p>اختبار كامل قبل تسليم المفتاح.</p>
+              <strong>سمارت كي بأمان</strong>
+              <p>برمجة مفاتيح ذكية مع الحفاظ على إعدادات الأمان الأصلية.</p>
             </div>
             <div class="meta-card">
-              <strong>أجهزة حديثة</strong>
-              <p>أحدث أجهزة البرمجة والتشخيص.</p>
+              <strong>استجابة ميدانية</strong>
+              <p>نصل لموقعك بسرعة داخل الكويت مع تجهيزات كاملة.</p>
             </div>
             <div class="meta-card">
-              <strong>أسعار واضحة</strong>
-              <p>عرض سعر قبل تنفيذ الخدمة.</p>
+              <strong>ضمان وجودة</strong>
+              <p>قطع أصلية وخدمة دقيقة مع متابعة بعد التسليم.</p>
             </div>
           </div>
           <div class="hero-gallery">
@@ -101,8 +143,8 @@
               <figcaption>مفاتيح سيارات حديثة</figcaption>
             </figure>
             <figure>
-              <img src="assets/images/car-remote.jpg" alt="مفاتيح سيارات احتياطية" loading="lazy" />
-              <figcaption>مفاتيح سيارات احتياطية</figcaption>
+              <img src="assets/images/car-remote.jpg" alt="ريموت سيارات وبرمجة" loading="lazy" />
+              <figcaption>ريموتات وبرمجة</figcaption>
             </figure>
           </div>
         </div>
@@ -117,7 +159,7 @@
       <div class="container">
         <div class="section-title">
           <h3>الخدمات</h3>
-          <span>كل ما تحتاجه لمفاتيح سيارتك</span>
+          <span>حلول كاملة لمفاتيح السيارات والريموت</span>
         </div>
         <div class="grid grid-3" id="serviceList"></div>
       </div>
@@ -128,12 +170,12 @@
         <div>
           <div class="section-title">
             <h3 id="aboutTitle"></h3>
-            <span>خبرة ميدانية واحترافية</span>
+            <span>خبرة محلية موثوقة</span>
           </div>
           <p id="aboutBody"></p>
         </div>
         <div>
-          <h4>لماذا تختارني؟</h4>
+          <h4>ليش تختارني؟</h4>
           <div class="tags" id="aboutValues"></div>
         </div>
       </div>
@@ -143,7 +185,7 @@
       <div class="container">
         <div class="section-title">
           <h3>كيف نشتغل؟</h3>
-          <span>خطوات واضحة وسريعة</span>
+          <span>خطوات بسيطة وواضحة</span>
         </div>
         <div class="grid grid-3" id="processList"></div>
       </div>
@@ -152,8 +194,8 @@
     <section class="section" id="pricing">
       <div class="container">
         <div class="section-title">
-          <h3>الاسعار</h3>
-          <span>باقات مرنة حسب احتياجك</span>
+          <h3>الأسعار</h3>
+          <span>باقات مرنة حسب الخدمة المطلوبة</span>
         </div>
         <div class="grid grid-3" id="pricingList"></div>
       </div>
@@ -162,8 +204,8 @@
     <section class="section">
       <div class="container">
         <div class="section-title">
-          <h3>اسئلة شائعة</h3>
-          <span>كل ما تحتاج معرفته قبل الطلب</span>
+          <h3>أسئلة شائعة</h3>
+          <span>إجابات سريعة قبل الطلب</span>
         </div>
         <div id="faqList"></div>
       </div>

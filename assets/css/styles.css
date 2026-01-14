@@ -377,6 +377,15 @@ h4 {
   margin: 18px 0 8px;
 }
 
+.hero-contacts .contact-pill {
+  cursor: default;
+}
+
+.hero-contacts .contact-pill:hover {
+  transform: none;
+  box-shadow: var(--shadow-soft);
+}
+
 .contact-pill {
   display: flex;
   align-items: center;

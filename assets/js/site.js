@@ -1,15 +1,38 @@
-﻿const $ = (selector) => document.querySelector(selector);
+const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => Array.from(document.querySelectorAll(selector));
+
+const cloneDefault = () => JSON.parse(JSON.stringify(defaultData));
+
+const hasArabic = (value) => /[\u0600-\u06ff]/.test(value || "");
+const looksCorrupted = (value) => /[ÃÂâêîôûŸœ]/.test(value || "");
+const isLikelyCorrupted = (data) => {
+  const fields = [
+    data && data.brand ? data.brand.name : "",
+    data && data.hero ? data.hero.title : "",
+    data && data.about ? data.about.title : ""
+  ];
+  const hasAnyArabic = fields.some(hasArabic);
+  const hasMojibake = fields.some(looksCorrupted);
+  return !hasAnyArabic && hasMojibake;
+};
 
 const getData = () => {
   const stored = localStorage.getItem(STORAGE_KEY);
   if (!stored) {
-    return JSON.parse(JSON.stringify(defaultData));
+    return cloneDefault();
   }
   try {
-    return JSON.parse(stored);
+    const parsed = JSON.parse(stored);
+    if (!parsed || typeof parsed !== "object") {
+      return cloneDefault();
+    }
+    if (isLikelyCorrupted(parsed)) {
+      localStorage.removeItem(STORAGE_KEY);
+      return cloneDefault();
+    }
+    return parsed;
   } catch (error) {
-    return JSON.parse(JSON.stringify(defaultData));
+    return cloneDefault();
   }
 };
 
@@ -56,22 +79,60 @@ const renderList = (container, items, renderer) => {
 };
 
 const renderData = (data) => {
-  $("#brandName").textContent = data.brand.name;
-  $("#brandTagline").textContent = data.brand.tagline;
+  const brandName = $("#brandName");
+  const brandTagline = $("#brandTagline");
+  if (brandName) {
+    brandName.textContent = data.brand.name;
+  }
+  if (brandTagline) {
+    brandTagline.textContent = data.brand.tagline;
+  }
   const footerName = $("#brandNameFooter");
   if (footerName) {
     footerName.textContent = data.brand.name;
   }
-  $("#responseTime").textContent = data.brand.responseTime;
-  $("#heroTitle").textContent = data.hero.title;
-  $("#heroSubtitle").textContent = data.hero.subtitle;
-  $("#heroBadge").textContent = data.hero.badge;
-  $("#heroHighlight").textContent = data.hero.highlight;
-  $("#ctaPrimary").textContent = data.brand.ctaPrimary;
-  $("#ctaSecondary").textContent = data.brand.ctaSecondary;
 
-  $("#aboutTitle").textContent = data.about.title;
-  $("#aboutBody").textContent = data.about.body;
+  const responseTime = $("#responseTime");
+  if (responseTime) {
+    responseTime.textContent = data.brand.responseTime;
+  }
+
+  const heroTitle = $("#heroTitle");
+  const heroSubtitle = $("#heroSubtitle");
+  const heroBadge = $("#heroBadge");
+  const heroHighlight = $("#heroHighlight");
+  if (heroTitle) {
+    heroTitle.textContent = data.hero.title;
+  }
+  if (heroSubtitle) {
+    heroSubtitle.textContent = data.hero.subtitle;
+  }
+  if (heroBadge) {
+    heroBadge.textContent = data.hero.badge;
+  }
+  if (heroHighlight) {
+    heroHighlight.textContent = data.hero.highlight;
+  }
+
+  const ctaPrimary = $("#ctaPrimary");
+  const ctaSecondary = $("#ctaSecondary");
+  if (ctaPrimary) {
+    ctaPrimary.textContent = data.brand.ctaPrimary;
+    ctaPrimary.href = "#services";
+  }
+  if (ctaSecondary) {
+    ctaSecondary.textContent = data.brand.ctaSecondary;
+    ctaSecondary.href = "#pricing";
+  }
+
+  const aboutTitle = $("#aboutTitle");
+  const aboutBody = $("#aboutBody");
+  if (aboutTitle) {
+    aboutTitle.textContent = data.about.title;
+  }
+  if (aboutBody) {
+    aboutBody.textContent = data.about.body;
+  }
 
   renderList($("#aboutValues"), data.about.values, (value) => {
     const span = document.createElement("span");
@@ -99,7 +160,7 @@ const renderData = (data) => {
     card.className = "process-step reveal";
     card.innerHTML = `
       <div class="icon-pill">${icon}</div>
-      <strong>خطوة ${index + 1}</strong>
+      <strong>الخطوة ${index + 1}</strong>
       <div>${step.title}</div>
       <small>${step.description}</small>
     `;
@@ -150,23 +211,39 @@ const renderData = (data) => {
 
   const phoneDigits = cleanPhone(data.contact.phone);
   const whatsappDigits = cleanPhone(data.contact.whatsapp);
-  const contactPhone = $("#contactPhone");
-  if (contactPhone) {
-    contactPhone.textContent = data.contact.phone;
-    $("#contactWhatsapp").textContent = data.contact.whatsapp;
-    $("#contactEmail").textContent = data.contact.email;
-    $("#contactAddress").textContent = data.contact.address;
-    $("#contactHours").textContent = data.contact.hours;
-    $("#phoneLink").href = `tel:${phoneDigits}`;
-    $("#whatsappLink").href = `https://wa.me/${whatsappDigits}`;
-    $("#emailLink").href = `mailto:${data.contact.email}`;
-    $("#socialInstagram").href = data.social.instagram;
-    $("#socialTiktok").href = data.social.tiktok;
-    $("#socialSnapchat").href = data.social.snapchat;
+  const directPhone = $("#directPhone");
+  const whatsappNumber = $("#whatsappNumber");
+  if (directPhone) {
+    directPhone.textContent = data.contact.phone;
+  }
+  if (whatsappNumber) {
+    whatsappNumber.textContent = data.contact.whatsapp;
   }
 
-  $("#ctaPrimary").href = `tel:${phoneDigits}`;
-  $("#ctaSecondary").href = `https://wa.me/${whatsappDigits}`;
+  const phoneLink = $("#phoneLink");
+  if (phoneLink) {
+    phoneLink.href = `tel:${phoneDigits}`;
+  }
+  const whatsappLink = $("#whatsappLink");
+  if (whatsappLink) {
+    whatsappLink.href = `https://wa.me/${whatsappDigits}`;
+  }
+  const emailLink = $("#emailLink");
+  if (emailLink) {
+    emailLink.href = `mailto:${data.contact.email}`;
+  }
+  const socialInstagram = $("#socialInstagram");
+  if (socialInstagram) {
+    socialInstagram.href = data.social.instagram;
+  }
+  const socialTiktok = $("#socialTiktok");
+  if (socialTiktok) {
+    socialTiktok.href = data.social.tiktok;
+  }
+  const socialSnapchat = $("#socialSnapchat");
+  if (socialSnapchat) {
+    socialSnapchat.href = data.social.snapchat;
+  }
 
   const floatingCall = $("#floatingCall");
   if (floatingCall) {
@@ -213,7 +290,7 @@ const setupContactForm = () => {
     const message = $("#contactMessage").value.trim();
 
     if (!name || !phone || !message) {
-      status.textContent = "فضلا اكمل جميع الحقول.";
+      status.textContent = "يرجى تعبئة جميع الحقول.";
       return;
     }
 
@@ -225,7 +302,7 @@ const setupContactForm = () => {
     };
 
     saveMessage(payload);
-    status.textContent = "تم استلام طلبك، سنتواصل معك قريبا.";
+    status.textContent = "تم استلام رسالتك، سنعود إليك قريبًا.";
     form.reset();
   });
 };

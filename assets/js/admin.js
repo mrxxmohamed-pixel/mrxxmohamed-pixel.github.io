@@ -1,14 +1,37 @@
-﻿const $ = (selector) => document.querySelector(selector);
+const $ = (selector) => document.querySelector(selector);
+
+const cloneDefault = () => JSON.parse(JSON.stringify(defaultData));
+
+const hasArabic = (value) => /[\u0600-\u06ff]/.test(value || "");
+const looksCorrupted = (value) => /[ÃÂâêîôûŸœ]/.test(value || "");
+const isLikelyCorrupted = (data) => {
+  const fields = [
+    data && data.brand ? data.brand.name : "",
+    data && data.hero ? data.hero.title : "",
+    data && data.about ? data.about.title : ""
+  ];
+  const hasAnyArabic = fields.some(hasArabic);
+  const hasMojibake = fields.some(looksCorrupted);
+  return !hasAnyArabic && hasMojibake;
+};
 
 const getData = () => {
   const stored = localStorage.getItem(STORAGE_KEY);
   if (!stored) {
-    return JSON.parse(JSON.stringify(defaultData));
+    return cloneDefault();
   }
   try {
-    return JSON.parse(stored);
+    const parsed = JSON.parse(stored);
+    if (!parsed || typeof parsed !== "object") {
+      return cloneDefault();
+    }
+    if (isLikelyCorrupted(parsed)) {
+      localStorage.removeItem(STORAGE_KEY);
+      return cloneDefault();
+    }
+    return parsed;
   } catch (error) {
-    return JSON.parse(JSON.stringify(defaultData));
+    return cloneDefault();
   }
 };
 
@@ -80,7 +103,7 @@ const createPricingItem = (plan = {}) => {
       <textarea class="input pricing-description"></textarea>
     </div>
     <div>
-      <label>المميزات (افصل بينها بفاصلة)</label>
+      <label>المزايا (افصل بينها بفاصلة)</label>
       <input class="input pricing-features" type="text" />
     </div>
     <div class="pricing-actions">
@@ -254,7 +277,7 @@ const setupAuth = () => {
       overlay.style.display = "none";
       errorText.textContent = "";
     } else {
-      errorText.textContent = "الرمز غير صحيح.";
+      errorText.textContent = "رمز الدخول غير صحيح.";
     }
   });
 
@@ -286,7 +309,7 @@ const init = () => {
     data = collectFormData(data);
     setData(data);
     fillForm(data);
-    showStatus("تم حفظ التحديثات السريعة.");
+    showStatus("تم حفظ التعديلات بنجاح.");
   });
 
   const saveJson = $("#saveJson");
@@ -297,9 +320,9 @@ const init = () => {
         data = parsed;
         setData(data);
         fillForm(data);
-        showStatus("تم حفظ البيانات من المحرر.");
+        showStatus("تم تحديث البيانات من الملف.");
       } catch (error) {
-        showStatus("ملف JSON غير صالح.");
+        showStatus("صيغة JSON غير صحيحة.");
       }
     });
   }
@@ -308,7 +331,7 @@ const init = () => {
     localStorage.removeItem(STORAGE_KEY);
     data = getData();
     fillForm(data);
-    showStatus("تمت إعادة الضبط للإعدادات الافتراضية.");
+    showStatus("تمت إعادة الإعدادات الافتراضية.");
   });
 
   $("#exportData").addEventListener("click", () => {

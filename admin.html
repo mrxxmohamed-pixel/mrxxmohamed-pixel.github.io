@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>لوحة التحكم | مفتاحك</title>
+    <title>لوحة التحكم | مفتاح</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,7 +17,7 @@
       <div class="container admin-topbar-inner">
         <div>
           <h1>لوحة التحكم</h1>
-          <p>تحكم بالمحتوى، الأسعار، والتواصل بسهولة.</p>
+          <p>عدل المحتوى والأسعار خلال دقائق وبواجهة بسيطة.</p>
         </div>
         <button class="btn btn-secondary" id="logout" type="button">تسجيل خروج</button>
       </div>
@@ -30,8 +30,8 @@
           style="display: none; position: fixed; inset: 0; background: rgba(15,14,12,0.65); backdrop-filter: blur(8px); z-index: 30; place-items: center;"
         >
           <div class="admin-card" style="width: min(420px, 90vw);">
-            <h3>الدخول للوحة التحكم</h3>
-            <p>ادخل رمز الدخول لتعديل الموقع.</p>
+            <h3>تسجيل الدخول للوحة التحكم</h3>
+            <p>أدخل رمز الدخول للمتابعة.</p>
             <input class="input" type="password" id="pinInput" placeholder="رمز الدخول" />
             <button class="btn btn-primary" id="pinButton" type="button">دخول</button>
             <p id="pinError" style="color: #b11a1a;"></p>
@@ -39,48 +39,48 @@
         </div>
 
         <div class="admin-card">
-          <h3>البيانات الاساسية</h3>
+          <h3>إعدادات العلامة التجارية</h3>
           <div class="admin-grid">
             <div>
               <label>اسم العلامة</label>
               <input class="input" id="brandName" type="text" />
             </div>
             <div>
-              <label>السطر التعريفي</label>
+              <label>الوصف المختصر</label>
               <input class="input" id="brandTagline" type="text" />
             </div>
             <div>
-              <label>زمن الرد</label>
+              <label>وقت الاستجابة</label>
               <input class="input" id="brandResponse" type="text" />
             </div>
             <div>
-              <label>زر الاتصال</label>
+              <label>نص زر الخدمات</label>
               <input class="input" id="ctaPrimary" type="text" />
             </div>
             <div>
-              <label>زر واتساب</label>
+              <label>نص زر الأسعار</label>
               <input class="input" id="ctaSecondary" type="text" />
             </div>
           </div>
         </div>
 
         <div class="admin-card">
-          <h3>قسم البطل</h3>
+          <h3>العنوان الرئيسي</h3>
           <div class="admin-grid">
             <div>
-              <label>عنوان رئيسي</label>
+              <label>عنوان البطل</label>
               <input class="input" id="heroTitle" type="text" />
             </div>
             <div>
-              <label>نص فرعي</label>
+              <label>الوصف الرئيسي</label>
               <input class="input" id="heroSubtitle" type="text" />
             </div>
             <div>
-              <label>شارة</label>
+              <label>الشارة</label>
               <input class="input" id="heroBadge" type="text" />
             </div>
             <div>
-              <label>إبراز</label>
+              <label>نص الميزة</label>
               <input class="input" id="heroHighlight" type="text" />
             </div>
           </div>
@@ -90,53 +90,53 @@
           <h3>نبذة عني</h3>
           <div class="admin-grid">
             <div>
-              <label>عنوان القسم</label>
+              <label>عنوان النبذة</label>
               <input class="input" id="aboutTitle" type="text" />
             </div>
             <div>
-              <label>النص</label>
+              <label>نص النبذة</label>
               <textarea class="input" id="aboutBody"></textarea>
             </div>
           </div>
         </div>
 
         <div class="admin-card">
-          <h3>الاسعار</h3>
+          <h3>الأسعار والباقات</h3>
           <div class="admin-card-header">
-            <span class="admin-hint">حدث الباقات بدون JSON.</span>
-            <button class="btn btn-secondary" id="addPricing" type="button">اضافة باقة</button>
+            <span class="admin-hint">يمكنك تعديل الباقات وإضافة مزايا بسهولة.</span>
+            <button class="btn btn-secondary" id="addPricing" type="button">إضافة باقة</button>
           </div>
           <div class="pricing-editor" id="pricingEditor"></div>
         </div>
 
         <div class="admin-card">
-          <h3>معلومات التواصل</h3>
+          <h3>بيانات التواصل</h3>
           <div class="admin-grid">
             <div>
-              <label>الجوال</label>
+              <label>رقم الهاتف</label>
               <input class="input" id="contactPhone" type="text" />
             </div>
             <div>
-              <label>واتساب</label>
+              <label>رقم واتساب</label>
               <input class="input" id="contactWhatsapp" type="text" />
             </div>
             <div>
-              <label>البريد الالكتروني</label>
+              <label>البريد الإلكتروني</label>
               <input class="input" id="contactEmail" type="email" />
             </div>
             <div>
-              <label>نطاق الخدمة</label>
+              <label>العنوان</label>
               <input class="input" id="contactAddress" type="text" />
             </div>
             <div>
-              <label>الساعات</label>
+              <label>ساعات العمل</label>
               <input class="input" id="contactHours" type="text" />
             </div>
           </div>
         </div>
 
         <div class="admin-card">
-          <h3>روابط السوشال</h3>
+          <h3>روابط السوشيال</h3>
           <div class="admin-grid">
             <div>
               <label>انستغرام</label>
@@ -157,7 +157,7 @@
           <h3>رمز الدخول</h3>
           <div class="admin-grid">
             <div>
-              <label>رمز جديد</label>
+              <label>رمز الدخول الحالي</label>
               <input class="input" id="adminPin" type="password" />
             </div>
           </div>
@@ -165,20 +165,20 @@
 
         <div class="admin-card">
           <div class="admin-actions">
-            <button class="btn btn-primary" id="saveQuick" type="button">حفظ سريع</button>
-            <button class="btn btn-secondary" id="exportData" type="button">تصدير JSON</button>
-            <button class="btn btn-secondary" id="resetData" type="button">اعادة ضبط</button>
+            <button class="btn btn-primary" id="saveQuick" type="button">حفظ التعديلات</button>
+            <button class="btn btn-secondary" id="exportData" type="button">تصدير البيانات</button>
+            <button class="btn btn-secondary" id="resetData" type="button">إعادة الافتراضي</button>
             <span id="status"></span>
           </div>
         </div>
 
         <div class="admin-card">
-          <h3>رسائل العملاء</h3>
+          <h3>سجل الرسائل</h3>
           <table class="table">
             <thead>
               <tr>
                 <th>الاسم</th>
-                <th>الجوال</th>
+                <th>الهاتف</th>
                 <th>الرسالة</th>
                 <th>الوقت</th>
               </tr>
