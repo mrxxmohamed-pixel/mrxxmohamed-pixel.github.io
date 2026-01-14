@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="keywords"
+      content="فتح سيارات مغلقة, مفاتيح سيارات, برمجة مفاتيح, نسخ مفاتيح, فتح أبواب سيارات, فتح سيارات بدون ضرر, طوارئ مفاتيح, مبرمج مفاتيح, فتح سيارات قريب"
+    />
+    <title>مفتاحك | مفاتيح السيارات</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Changa:wght@300;400;600;700&family=El+Messiri:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="container inner">
+        <div class="brand">
+          <div class="brand-mark">م</div>
+          <div>
+            <h1 id="brandName"></h1>
+            <small id="brandTagline"></small>
+          </div>
+        </div>
+        <nav class="nav-links">
+          <a href="#services">الخدمات</a>
+          <a href="#about">نبذة</a>
+          <a href="#pricing">الاسعار</a>
+        </nav>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="glow"></div>
+      <div class="orb"></div>
+      <div class="container hero-grid">
+        <div>
+          <span class="badge" id="heroBadge"></span>
+          <h2 id="heroTitle"></h2>
+          <p id="heroSubtitle"></p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" id="ctaPrimary" href="#"></a>
+            <a class="btn btn-secondary" id="ctaSecondary" href="#" target="_blank" rel="noopener"></a>
+          </div>
+          <div class="keyword-strip">
+            <div class="keyword-pill">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 7a4 4 0 1 1 6.9 2.7L13 12v3h-3v-2l2.4-2.3A2 2 0 1 0 9 7Z" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <path d="M13 15h3v3h-3z" fill="none" stroke="currentColor" stroke-width="1.6" />
+              </svg>
+              فتح سيارات مغلقة
+            </div>
+            <div class="keyword-pill">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 14l2-5h11l3 5" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <path d="M7 17a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm10 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <path d="M6 14h12" fill="none" stroke="currentColor" stroke-width="1.6" />
+              </svg>
+              مفاتيح سيارات حديثة
+            </div>
+            <div class="keyword-pill">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <path d="M12 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.6" />
+              </svg>
+              برمجة ونسخ مفاتيح
+            </div>
+            <div class="keyword-pill">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 6v6l4 2" fill="none" stroke="currentColor" stroke-width="1.6" />
+                <path d="M4 12a8 8 0 1 0 8-8" fill="none" stroke="currentColor" stroke-width="1.6" />
+              </svg>
+              خدمة طوارئ 24/7
+            </div>
+          </div>
+          <p class="badge" id="responseTime"></p>
+        </div>
+        <div class="hero-card">
+          <h3 id="heroHighlight"></h3>
+          <div class="hero-meta">
+            <div class="meta-card">
+              <strong>ضمان جودة</strong>
+              <p>اختبار كامل قبل تسليم المفتاح.</p>
+            </div>
+            <div class="meta-card">
+              <strong>أجهزة حديثة</strong>
+              <p>أحدث أجهزة البرمجة والتشخيص.</p>
+            </div>
+            <div class="meta-card">
+              <strong>أسعار واضحة</strong>
+              <p>عرض سعر قبل تنفيذ الخدمة.</p>
+            </div>
+          </div>
+          <div class="hero-gallery">
+            <figure>
+              <img src="assets/images/car-keys.jpg" alt="مفاتيح سيارات حديثة" loading="lazy" />
+              <figcaption>مفاتيح سيارات حديثة</figcaption>
+            </figure>
+            <figure>
+              <img src="assets/images/car-remote.jpg" alt="مفاتيح سيارات احتياطية" loading="lazy" />
+              <figcaption>مفاتيح سيارات احتياطية</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container stat-grid" id="statsList"></div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-title">
+          <h3>الخدمات</h3>
+          <span>كل ما تحتاجه لمفاتيح سيارتك</span>
+        </div>
+        <div class="grid grid-3" id="serviceList"></div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container about-layout">
+        <div>
+          <div class="section-title">
+            <h3 id="aboutTitle"></h3>
+            <span>خبرة ميدانية واحترافية</span>
+          </div>
+          <p id="aboutBody"></p>
+        </div>
+        <div>
+          <h4>لماذا تختارني؟</h4>
+          <div class="tags" id="aboutValues"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <h3>كيف نشتغل؟</h3>
+          <span>خطوات واضحة وسريعة</span>
+        </div>
+        <div class="grid grid-3" id="processList"></div>
+      </div>
+    </section>
+
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-title">
+          <h3>الاسعار</h3>
+          <span>باقات مرنة حسب احتياجك</span>
+        </div>
+        <div class="grid grid-3" id="pricingList"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-title">
+          <h3>اسئلة شائعة</h3>
+          <span>كل ما تحتاج معرفته قبل الطلب</span>
+        </div>
+        <div id="faqList"></div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <span>© <span id="brandNameFooter"></span> جميع الحقوق محفوظة.</span>
+        <a href="admin.html">لوحة التحكم</a>
+      </div>
+    </footer>
+
+    <a class="floating-call" id="floatingCall" href="#" aria-label="اتصال مباشر">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path
+          d="M7 4c-.6 0-1 .4-1 1 0 6.1 4.9 11 11 11 .6 0 1-.4 1-1v-3c0-.4-.2-.7-.6-.9l-3-1.3c-.4-.2-.9 0-1.1.4l-1 1.6a9.7 9.7 0 0 1-4.2-4.2l1.6-1c.4-.2.6-.7.4-1.1L9 4.6C8.8 4.2 8.4 4 8 4H7Z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linejoin="round"
+        />
+      </svg>
+      اتصال مباشر
+    </a>
+
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/site.js"></script>
+  </body>
+</html>
